@@ -1,17 +1,79 @@
+<!-- login.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Login de Prueba</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 320px;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #2575fc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-container button:hover {
+      background-color: #1a5edc;
+    }
+
+    #mensaje {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <h2>Login</h2>
-  <form id="loginForm">
-    <input type="text" id="usuario" placeholder="Usuario"><br>
-    <input type="password" id="clave" placeholder="Contraseña"><br>
-    <button type="submit" id="login">Ingresar</button>
-  </form>
-  <p id="mensaje"></p>
+  <div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <form id="loginForm">
+      <input type="text" id="usuario" placeholder="Usuario">
+      <input type="password" id="clave" placeholder="Contraseña">
+      <button type="submit" id="login">Ingresar</button>
+    </form>
+    <p id="mensaje"></p>
+  </div>
 
   <script>
     document.getElementById("loginForm").addEventListener("submit", function(e) {
@@ -26,6 +88,9 @@
       } else if (usuario === "admin" && clave === "1234") {
         mensaje.textContent = "Bienvenido admin";
         mensaje.style.color = "green";
+        setTimeout(() => {
+          window.location.href = "bienvenido.html";
+        }, 1000);
       } else {
         mensaje.textContent = "Credenciales incorrectas";
         mensaje.style.color = "red";
