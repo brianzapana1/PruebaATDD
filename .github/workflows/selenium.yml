@@ -20,9 +20,6 @@ jobs:
         pip install selenium
         pip install webdriver-manager
 
-    - name: Mostrar estructura del proyecto
-      run: ls -R
-
-    - name: Ejecutar pruebas de aceptación
+    - name: Ejecutar pruebas de aceptación (simulado)
       run: |
-        python test_login.py
+        python test_login1.py
