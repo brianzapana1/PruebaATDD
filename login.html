@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login de Prueba</title>
+</head>
+<body>
+  <h2>Login</h2>
+  <form id="loginForm">
+    <input type="text" id="usuario" placeholder="Usuario"><br>
+    <input type="password" id="clave" placeholder="Contraseña"><br>
+    <button type="submit" id="login">Ingresar</button>
+  </form>
+  <p id="mensaje"></p>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const usuario = document.getElementById("usuario").value.trim();
+      const clave = document.getElementById("clave").value.trim();
+      const mensaje = document.getElementById("mensaje");
+
+      if (usuario === "" || clave === "") {
+        mensaje.textContent = "Por favor complete todos los campos";
+        mensaje.style.color = "orange";
+      } else if (usuario === "admin" && clave === "1234") {
+        mensaje.textContent = "Bienvenido admin";
+        mensaje.style.color = "green";
+      } else {
+        mensaje.textContent = "Credenciales incorrectas";
+        mensaje.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>
